@@ -65,6 +65,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9DB612581C2821CF00D5555B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A6427A71E4E656D85B0B5897 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				CCAF9DFA1C1D6E33004E8546 /* CustomControls */,
+				9DB612581C2821CF00D5555B /* View */,
 				CCAF9DF31C1D294B004E8546 /* ViewControllers */,
 				CCD18D301C1446430019B88C /* DataModel */,
 				CCA3EAC01C1405FF005427BF /* DrawerContainer */,
