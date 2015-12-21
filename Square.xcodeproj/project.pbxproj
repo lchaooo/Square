@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		441171E5B31D6D55E67E568B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5066853E3FC99C7CAF57F0C2 /* Pods.framework */; };
 		CC5B3F631C14A55C001FC985 /* ProjectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5B3F621C14A55C001FC985 /* ProjectionModel.swift */; };
 		CC5B3F651C14A655001FC985 /* ProjectionDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5B3F641C14A655001FC985 /* ProjectionDataManager.swift */; };
 		CCA3EAA71C1402C3005427BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA3EAA61C1402C3005427BF /* AppDelegate.swift */; };
@@ -24,11 +25,11 @@
 		CCAF9DFC1C1D7759004E8546 /* ModelModifyingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAF9DFB1C1D7759004E8546 /* ModelModifyingViewController.swift */; };
 		CCD18D2E1C1445950019B88C /* ObjectsInformation.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCD18D2C1C1445950019B88C /* ObjectsInformation.plist */; };
 		CCD18D2F1C1445950019B88C /* PlistFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD18D2D1C1445950019B88C /* PlistFileManager.swift */; };
-		FBEF1AC5CB75CBFE8BC8AC65 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEAFEF96B24A2EF4849BD2A /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		43D612941254F712B5846D36 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		5066853E3FC99C7CAF57F0C2 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7174D20DA862664E24F4729D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CC5B3F5F1C144D4E001FC985 /* Square-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Square-Bridging-Header.h"; sourceTree = "<group>"; };
 		CC5B3F621C14A55C001FC985 /* ProjectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectionModel.swift; sourceTree = "<group>"; };
@@ -50,7 +51,6 @@
 		CCAF9DFB1C1D7759004E8546 /* ModelModifyingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelModifyingViewController.swift; sourceTree = "<group>"; };
 		CCD18D2C1C1445950019B88C /* ObjectsInformation.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ObjectsInformation.plist; sourceTree = "<group>"; };
 		CCD18D2D1C1445950019B88C /* PlistFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistFileManager.swift; sourceTree = "<group>"; };
-		DDEAFEF96B24A2EF4849BD2A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBEF1AC5CB75CBFE8BC8AC65 /* libPods.a in Frameworks */,
+				441171E5B31D6D55E67E568B /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,7 +77,7 @@
 		BE94F6BDB35FD36EFC03C0DB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DDEAFEF96B24A2EF4849BD2A /* libPods.a */,
+				5066853E3FC99C7CAF57F0C2 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
