@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		441171E5B31D6D55E67E568B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5066853E3FC99C7CAF57F0C2 /* Pods.framework */; };
+		9D8BD79F1C2825E500983DBE /* EditDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8BD7991C2825E500983DBE /* EditDetailView.xib */; };
+		9D8BD7A01C2825E500983DBE /* EditDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BD79A1C2825E500983DBE /* EditDetailView.swift */; };
+		9D8BD7A11C2825E500983DBE /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BD79B1C2825E500983DBE /* EditView.swift */; };
+		9D8BD7A21C2825E500983DBE /* LightEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BD79C1C2825E500983DBE /* LightEditView.swift */; };
+		9D8BD7A31C2825E500983DBE /* LightEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8BD79D1C2825E500983DBE /* LightEditView.xib */; };
+		9D8BD7A41C2825E500983DBE /* ProjectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BD79E1C2825E500983DBE /* ProjectorView.swift */; };
 		CC5B3F631C14A55C001FC985 /* ProjectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5B3F621C14A55C001FC985 /* ProjectionModel.swift */; };
 		CC5B3F651C14A655001FC985 /* ProjectionDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5B3F641C14A655001FC985 /* ProjectionDataManager.swift */; };
 		CCA3EAA71C1402C3005427BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA3EAA61C1402C3005427BF /* AppDelegate.swift */; };
@@ -31,6 +37,12 @@
 		43D612941254F712B5846D36 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5066853E3FC99C7CAF57F0C2 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7174D20DA862664E24F4729D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		9D8BD7991C2825E500983DBE /* EditDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditDetailView.xib; sourceTree = "<group>"; };
+		9D8BD79A1C2825E500983DBE /* EditDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDetailView.swift; sourceTree = "<group>"; };
+		9D8BD79B1C2825E500983DBE /* EditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
+		9D8BD79C1C2825E500983DBE /* LightEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightEditView.swift; sourceTree = "<group>"; };
+		9D8BD79D1C2825E500983DBE /* LightEditView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LightEditView.xib; sourceTree = "<group>"; };
+		9D8BD79E1C2825E500983DBE /* ProjectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectorView.swift; sourceTree = "<group>"; };
 		CC5B3F5F1C144D4E001FC985 /* Square-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Square-Bridging-Header.h"; sourceTree = "<group>"; };
 		CC5B3F621C14A55C001FC985 /* ProjectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectionModel.swift; sourceTree = "<group>"; };
 		CC5B3F641C14A655001FC985 /* ProjectionDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectionDataManager.swift; sourceTree = "<group>"; };
@@ -65,11 +77,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9DB612581C2821CF00D5555B /* View */ = {
+		9D8BD7981C2825C800983DBE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9D8BD7991C2825E500983DBE /* EditDetailView.xib */,
+				9D8BD79A1C2825E500983DBE /* EditDetailView.swift */,
+				9D8BD79B1C2825E500983DBE /* EditView.swift */,
+				9D8BD79C1C2825E500983DBE /* LightEditView.swift */,
+				9D8BD79D1C2825E500983DBE /* LightEditView.xib */,
+				9D8BD79E1C2825E500983DBE /* ProjectorView.swift */,
 			);
-			path = View;
+			name = View;
 			sourceTree = "<group>";
 		};
 		A6427A71E4E656D85B0B5897 /* Pods */ = {
@@ -110,8 +128,8 @@
 		CCA3EAA51C1402C3005427BF /* Square */ = {
 			isa = PBXGroup;
 			children = (
+				9D8BD7981C2825C800983DBE /* View */,
 				CCAF9DFA1C1D6E33004E8546 /* CustomControls */,
-				9DB612581C2821CF00D5555B /* View */,
 				CCAF9DF31C1D294B004E8546 /* ViewControllers */,
 				CCD18D301C1446430019B88C /* DataModel */,
 				CCA3EAC01C1405FF005427BF /* DrawerContainer */,
@@ -239,6 +257,8 @@
 				CCA3EAAE1C1402C3005427BF /* Assets.xcassets in Resources */,
 				CCD18D2E1C1445950019B88C /* ObjectsInformation.plist in Resources */,
 				CCA3EAAC1C1402C3005427BF /* Main.storyboard in Resources */,
+				9D8BD79F1C2825E500983DBE /* EditDetailView.xib in Resources */,
+				9D8BD7A31C2825E500983DBE /* LightEditView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,10 +323,14 @@
 				CCA3EAC61C140F43005427BF /* ImageCollectionCell.swift in Sources */,
 				CCA3EABD1C1403C1005427BF /* CommonExtensions.swift in Sources */,
 				CC5B3F631C14A55C001FC985 /* ProjectionModel.swift in Sources */,
+				9D8BD7A41C2825E500983DBE /* ProjectorView.swift in Sources */,
 				CCA3EABB1C1403C1005427BF /* BSDrawerContainer.swift in Sources */,
+				9D8BD7A21C2825E500983DBE /* LightEditView.swift in Sources */,
 				CCA3EABC1C1403C1005427BF /* BSDrawerLeftViewController.swift in Sources */,
 				CC5B3F651C14A655001FC985 /* ProjectionDataManager.swift in Sources */,
+				9D8BD7A01C2825E500983DBE /* EditDetailView.swift in Sources */,
 				CCA3EAA71C1402C3005427BF /* AppDelegate.swift in Sources */,
+				9D8BD7A11C2825E500983DBE /* EditView.swift in Sources */,
 				CCAF9DFC1C1D7759004E8546 /* ModelModifyingViewController.swift in Sources */,
 				CCA3EAC41C140ACB005427BF /* FlipCoverFlowLayout.swift in Sources */,
 				CCA3EABF1C1405E0005427BF /* PreviewViewController.swift in Sources */,
