@@ -13,21 +13,49 @@ import SnapKit
 
 class ProjectorView: UIView {
 
-    var isAnimating: Bool {
+    var animated: Bool {
         didSet {
-            if isAnimating {
-                scene?.rootNode.childNodes[0].runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y: 1, z: 0, duration: 5)))
-            } else if !isAnimating {
-                scene?.rootNode.childNodes[0].removeAllActions()
+            for node: SCNNode in fileNodes! {
+                scene?.rootNode.addChildNode(node)
+                if animated {
+                    node.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y: 1, z: 0, duration: 5)))
+                } else {
+                    node.removeAllActions()
+                }
             }
         }
     }
     var filePath: String? {
         didSet {
             let fileScene = SCNScene.init(named: filePath!)
-            scene?.rootNode.addChildNode(fileScene!.rootNode)
+            fileNodes = fileScene!.rootNode.childNodes
+            for node: SCNNode in fileNodes! {
+                scene?.rootNode.addChildNode(node)
+                if animated {
+                    node.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y: 1, z: 0, duration: 5)))
+                } else {
+                    node.removeAllActions()
+                }
+            }
         }
     }
+    var cameraInfoString: String? {
+        didSet {
+            self.cameraInfo = cameraInfoString?.convertStringToNodeInfo()
+        }
+    }
+    private var cameraInfo: NodeInfo? {
+        didSet {
+            let cameraNodes = cameraInfo?.getBaseNodeAndCameraNode()
+            scene?.rootNode.addChildNode(cameraNodes!.base)
+            bottomView?.pointOfView = cameraNodes!.bottom
+            topView?.pointOfView = cameraNodes!.top
+            leftView?.pointOfView = cameraNodes!.left
+            rightView?.pointOfView = cameraNodes!.right
+        }
+    }
+    private var lookAtPoint: SCNNode?
+    private var fileNodes: [SCNNode]?
     private var scene: SCNScene?
     private var topView: SCNView?
     private var bottomView: SCNView?
@@ -38,8 +66,8 @@ class ProjectorView: UIView {
             return 0.3333333333
         }
     }
-    override init (frame : CGRect) {
-        isAnimating = true
+    override init(frame: CGRect) {
+        animated = true
         super.init(frame : frame)
         self.setUpSubviews();
         self.setUpScenes();
@@ -55,6 +83,16 @@ class ProjectorView: UIView {
     
     func setUpSubviews() {
         self.backgroundColor = UIColor.blackColor()
+        
+        let midView = UIView.init()
+        midView.backgroundColor = UIColor.whiteColor()
+        midView.layer.masksToBounds = true
+        midView.layer.cornerRadius = 2.5
+        self.addSubview(midView)
+        midView.snp_makeConstraints { (make) -> Void in
+            make.center.equalTo(self.snp_center)
+            make.size.equalTo(CGSizeMake(5, 5))
+        }
         
         topView = SCNView.init()
         bottomView = SCNView.init()

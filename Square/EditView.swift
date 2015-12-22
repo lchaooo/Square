@@ -14,14 +14,17 @@ class EditView: UIView {
     var filePath: String? {
         didSet {
             let fileScene = SCNScene.init(named: filePath!)
-            scene?.rootNode.addChildNode(fileScene!.rootNode)
-            var v1 = SCNVector3(x:0, y:0, z:0)
-            var v2 = SCNVector3(x:0, y:0, z:0)
-            previewView?.scene?.rootNode.getBoundingBoxMin(&v1, max:&v2)
-            print(v1, v2)
-            self.lookAtPosition = SCNVector3Make((v1.x + v2.x) / 2, (v1.y + v2.y) / 2, (v1.z + v2.z) / 2)
-            let cameraPosition = SCNVector3Make(v1.x * 2, lookAtPosition!.y, v1.z * 2)
-            cameraNode?.position = cameraPosition
+            let fileNode = fileScene!.rootNode.childNodes
+            for node: SCNNode in fileNode {
+                scene?.rootNode.addChildNode(node)
+                node.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y: 1, z: 0, duration: 5)))
+            }
+            var smallestVector = SCNVector3Zero
+            var biggestVector = SCNVector3Zero
+            previewView?.scene?.rootNode.getBoundingBoxMin(&smallestVector, max:&biggestVector)
+            //
+            lookAtPosition = SCNVector3Make((smallestVector.x+biggestVector.x)/2, (smallestVector.y+biggestVector.y)/2, (smallestVector.z+biggestVector.z)/2)
+            cameraNode?.position = self.initialCameraPosition(smallestVector, big: biggestVector)
             let lookAtNode = SCNNode.init()
             lookAtNode.position = lookAtPosition!
             scene?.rootNode.addChildNode(lookAtNode)
@@ -73,6 +76,9 @@ class EditView: UIView {
             make.height.equalTo(250)
         })
         previewView?.scene = scene
+        let recognizer = UIPanGestureRecognizer.init(target: self, action: Selector.init("log"))
+        recognizer.minimumNumberOfTouches = 2
+        previewView?.addGestureRecognizer(recognizer)
         
         detailView = UIView.loadFromNibNamed("EditDetailView") as? EditDetailView
         self.addSubview(detailView!)
@@ -82,12 +88,22 @@ class EditView: UIView {
             make.width.equalTo(self.snp_width)
             make.centerX.equalTo(self.snp_centerX)
         })
-//        let button = UIButton.init(frame: CGRectMake(100, 500, 100, 100))
-//        button.backgroundColor = UIColor.blackColor()
-//        button.addTarget(self, action: Selector.init("log"), forControlEvents: UIControlEvents.TouchUpInside)
-//        self.addSubview(button)
+        let button = UIButton.init(frame: CGRectMake(100, 500, 100, 100))
+        button.backgroundColor = UIColor.blackColor()
+        button.addTarget(self, action: Selector.init("log"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.addSubview(button)
     }
-//    func log() {
-//        print(self.currentPointOfView.eulerAngles, self.currentPointOfView.position)
-//    }
+    func log() {
+        print("pov:\(self.currentPointOfView.nodeInfo())")
+        print("node:\(self.cameraNode?.nodeInfo())")
+    }
+    
+    func initialCameraPosition(small: SCNVector3, big: SCNVector3) -> SCNVector3 {
+        let mid = SCNVector3Make((small.x+big.x)/2, (small.y+big.y)/2, (small.z+big.z)/2)
+        let x = max(fabs(mid.x - small.x), fabs(mid.x - big.x))
+        let y = max(fabs(mid.y - small.y), fabs(mid.y - big.y))
+        let z = max(fabs(mid.z - small.z), fabs(mid.z - big.z))
+        let distance = sqrt(x*x+y*y+z*z)
+        return SCNVector3Make(mid.x + distance, mid.y + distance, mid.z + distance)
+    }
 }
