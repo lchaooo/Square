@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="sOQ-Ne-2tg" customClass="EditDetailView" customModule="OneSquare" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="sOQ-Ne-2tg" customClass="EditDetailView" customModule="Square" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -95,8 +95,8 @@
             </constraints>
             <variation key="default">
                 <mask key="constraints">
-                    <exclude reference="ztf-RJ-p8F"/>
                     <exclude reference="nNz-uA-0lm"/>
+                    <exclude reference="ztf-RJ-p8F"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="640" y="440"/>

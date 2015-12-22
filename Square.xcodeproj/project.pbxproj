@@ -77,7 +77,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9D8BD7981C2825C800983DBE /* View */ = {
+		9D8BD7981C2825C800983DBE /* 3DModel */ = {
 			isa = PBXGroup;
 			children = (
 				9D8BD7991C2825E500983DBE /* EditDetailView.xib */,
@@ -87,7 +87,7 @@
 				9D8BD79D1C2825E500983DBE /* LightEditView.xib */,
 				9D8BD79E1C2825E500983DBE /* ProjectorView.swift */,
 			);
-			name = View;
+			name = 3DModel;
 			sourceTree = "<group>";
 		};
 		A6427A71E4E656D85B0B5897 /* Pods */ = {
@@ -128,7 +128,7 @@
 		CCA3EAA51C1402C3005427BF /* Square */ = {
 			isa = PBXGroup;
 			children = (
-				9D8BD7981C2825C800983DBE /* View */,
+				9D8BD7981C2825C800983DBE /* 3DModel */,
 				CCAF9DFA1C1D6E33004E8546 /* CustomControls */,
 				CCAF9DF31C1D294B004E8546 /* ViewControllers */,
 				CCD18D301C1446430019B88C /* DataModel */,
