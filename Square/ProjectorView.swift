@@ -12,7 +12,7 @@ import SnapKit
 
 
 class ProjectorView: UIView {
-
+    
     var animated: Bool {
         didSet {
             for node: SCNNode in fileNodes! {
@@ -39,21 +39,7 @@ class ProjectorView: UIView {
             }
         }
     }
-    var cameraInfoString: String? {
-        didSet {
-            self.cameraInfo = cameraInfoString?.convertStringToNodeInfo()
-        }
-    }
-    private var cameraInfo: NodeInfo? {
-        didSet {
-            let cameraNodes = cameraInfo?.getBaseNodeAndCameraNode()
-            scene?.rootNode.addChildNode(cameraNodes!.base)
-            bottomView?.pointOfView = cameraNodes!.bottom
-            topView?.pointOfView = cameraNodes!.top
-            leftView?.pointOfView = cameraNodes!.left
-            rightView?.pointOfView = cameraNodes!.right
-        }
-    }
+    var cameraInfoString: String?
     private var lookAtPoint: SCNNode?
     private var fileNodes: [SCNNode]?
     private var scene: SCNScene?
@@ -73,7 +59,15 @@ class ProjectorView: UIView {
         self.setUpScenes();
     }
     
-    convenience init () {
+    convenience init(frame:CGRect, filePath:String, cameraInfoString:String, animated:Bool) {
+        self.init(frame:frame)
+        self.filePath = filePath
+        self.cameraInfoString = cameraInfoString
+        self.animated = animated
+        self.setUpCamera()
+    }
+    
+    convenience init() {
         self.init(frame:CGRect.zero)
     }
     
@@ -83,6 +77,8 @@ class ProjectorView: UIView {
     
     func setUpSubviews() {
         self.backgroundColor = UIColor.blackColor()
+        //TODO
+    //    UIScreen.mainScreen().brightness = 1.0
         
         let midView = UIView.init()
         midView.backgroundColor = UIColor.whiteColor()
@@ -108,7 +104,7 @@ class ProjectorView: UIView {
         self.addSubview(bottomView!)
         self.addSubview(leftView!)
         self.addSubview(rightView!)
-
+        
         leftView?.snp_makeConstraints(closure: { (make) -> Void in
             make.left.equalTo(self)
             make.centerY.equalTo(self)
@@ -147,5 +143,24 @@ class ProjectorView: UIView {
         bottomView?.scene = scene
         leftView?.scene = scene
         rightView?.scene = scene
+    }
+    
+    func setUpCamera() {
+        let fileScene = SCNScene.init(named: filePath!)
+        fileNodes = fileScene!.rootNode.childNodes
+        for node: SCNNode in fileNodes! {
+            scene?.rootNode.addChildNode(node)
+            if animated {
+                node.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y: 1, z: 0, duration: 5)))
+            } else {
+                node.removeAllActions()
+            }
+        }
+        let cameraNodes = cameraInfoString?.convertStringToNodeInfo()?.getBaseNodeAndCameraNode()
+        scene?.rootNode.addChildNode(cameraNodes!.base)
+        bottomView?.pointOfView = cameraNodes!.bottom
+        topView?.pointOfView = cameraNodes!.top
+        leftView?.pointOfView = cameraNodes!.left
+        rightView?.pointOfView = cameraNodes!.right
     }
 }
